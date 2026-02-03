@@ -5,10 +5,11 @@ import java.util.Random;
 public class Visualizer extends JPanel {
 
     int[] data = new int[50];
+    boolean sorting = false;
+    String algorithm = "Bubble";
 
     public Visualizer() {
         generateData();
-        new Thread(this::bubbleSort).start();
     }
 
     void generateData() {
@@ -16,22 +17,67 @@ public class Visualizer extends JPanel {
         for (int i = 0; i < data.length; i++) {
             data[i] = rand.nextInt(300) + 20;
         }
+        repaint();
     }
 
-    void bubbleSort() {
-        try {
-            for (int i = 0; i < data.length; i++) {
-                for (int j = 0; j < data.length - i - 1; j++) {
-                    if (data[j] > data[j + 1]) {
-                        int temp = data[j];
-                        data[j] = data[j + 1];
-                        data[j + 1] = temp;
-                    }
-                    repaint();
-                    Thread.sleep(20);
+    void sort() {
+        if (sorting) return;
+        sorting = true;
+
+        new Thread(() -> {
+            try {
+                if (algorithm.equals("Bubble")) bubbleSort();
+                if (algorithm.equals("Quick")) quickSort(0, data.length - 1);
+            } catch (Exception ignored) {}
+
+            sorting = false;
+        }).start();
+    }
+
+    void bubbleSort() throws InterruptedException {
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data.length - i - 1; j++) {
+                if (data[j] > data[j + 1]) {
+                    int temp = data[j];
+                    data[j] = data[j + 1];
+                    data[j + 1] = temp;
                 }
+                repaint();
+                Thread.sleep(20);
             }
-        } catch (InterruptedException ignored) {}
+        }
+    }
+
+    void quickSort(int low, int high) throws InterruptedException {
+        if (low < high) {
+            int pi = partition(low, high);
+            quickSort(low, pi - 1);
+            quickSort(pi + 1, high);
+        }
+    }
+
+    int partition(int low, int high) throws InterruptedException {
+        int pivot = data[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+            if (data[j] < pivot) {
+                i++;
+                int temp = data[i];
+                data[i] = data[j];
+                data[j] = temp;
+                repaint();
+                Thread.sleep(20);
+            }
+        }
+
+        int temp = data[i + 1];
+        data[i + 1] = data[high];
+        data[high] = temp;
+        repaint();
+        Thread.sleep(20);
+
+        return i + 1;
     }
 
     @Override
@@ -49,7 +95,31 @@ public class Visualizer extends JPanel {
         JFrame frame = new JFrame("DSA Visualizer");
         Visualizer panel = new Visualizer();
 
-        frame.add(panel);
+        JButton generateBtn = new JButton("Generate");
+        JButton sortBtn = new JButton("Sort");
+
+        String[] algos = {"Bubble", "Quick"};
+        JComboBox<String> dropdown = new JComboBox<>(algos);
+
+        dropdown.addActionListener(e ->
+                panel.algorithm = (String) dropdown.getSelectedItem()
+        );
+
+        generateBtn.addActionListener(e -> {
+            if (!panel.sorting) panel.generateData();
+        });
+
+        sortBtn.addActionListener(e -> panel.sort());
+
+        JPanel controls = new JPanel();
+        controls.add(generateBtn);
+        controls.add(dropdown);
+        controls.add(sortBtn);
+
+        frame.setLayout(new BorderLayout());
+        frame.add(panel, BorderLayout.CENTER);
+        frame.add(controls, BorderLayout.SOUTH);
+
         frame.setSize(800, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
