@@ -20,5 +20,6 @@ Java • Swing
 ## How to run
 
 ```bash
-javac Visualizer.java
-java Visualizer
+javac DSAVisualizer.java
+java DSAVisualizer
+
