@@ -1,6 +1,7 @@
 # 📊 Sorting Visualizer
 
-A professional-grade **Java Swing** application that visualizes classic sorting algorithms step-by-step. Designed as a learning and debugging tool for DSA students, this project combines a modern dark-themed UI with a powerful **Snapshot Debugger** that lets you rewind algorithm execution in real time.
+his project is an interactive sorting algorithm visualizer built in Java Swing.  
+It demonstrates the internal mechanics of classic sorting techniques through real-time animation, step-by-step debugging, and mathematical analysis. The tool is designed as a learning aid for Data Structures and Algorithms, allowing users to pause execution, rewind states, and observe how data moves during sorting in real time.
 
 ## 🚀 Key Features
 
@@ -54,6 +55,7 @@ Requires Java 11+
 ## Output
 
 [Watch the 1-min video demo here](output.mp4)
+
 
 
 
