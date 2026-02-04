@@ -51,6 +51,8 @@ java DSAVisualizer
 
 Requires Java 11+
 
-## Outputs
+## Output
 
-(Add screenshots here)
+[Watch the 1-min video demo here](videos/output.mp4)
+
+
