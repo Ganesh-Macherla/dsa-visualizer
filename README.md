@@ -54,7 +54,8 @@ Requires Java 11+
 
 ## Output
 
-[Watch the 1-min video demo here](output.mp4)
+[Watch the 1-min video demo here](media/output.mp4)
+
 
 
 
