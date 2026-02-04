@@ -12,7 +12,7 @@ public class DSAVisualizer extends JFrame {
     private int visualDelay = 50; 
     private int REAL_OP_NS = 10; 
 
-    // Fluid Dark Theme Colors
+    // theme
     private final Color BG_DARK = new Color(25, 25, 30);
     private final Color SIDEBAR_BG = new Color(35, 35, 40);
     private final Color ACCENT_BLUE = new Color(80, 150, 240);
@@ -32,7 +32,7 @@ public class DSAVisualizer extends JFrame {
 
     private long visualStart, visualEnd;
 
-    // --- SNAPSHOT DEBUGGER ---
+    // snapshot debugger
     private boolean isPaused = false;
     private boolean stepRequested = false; 
     private List<Snapshot> history = new ArrayList<>();
@@ -53,11 +53,12 @@ public class DSAVisualizer extends JFrame {
         showTheory((String) algoBox.getSelectedItem());
     }
 
+    // ui
     private void initUI() {
         JPanel mainContent = new JPanel(new BorderLayout());
         mainContent.setBackground(BG_DARK);
 
-        // Header
+        // header
         JPanel topBar = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 15));
         topBar.setBackground(SIDEBAR_BG);
         
@@ -159,7 +160,7 @@ public class DSAVisualizer extends JFrame {
         return btn;
     }
 
-    /* ======================= SNAPSHOT SYSTEM ======================= */
+    /* snapshot system */
     class Snapshot {
         int[] values;
         Color[] colors;
@@ -254,7 +255,7 @@ public class DSAVisualizer extends JFrame {
         showTimeStats();
     }
 
-    /* ======================= SORTS ======================= */
+    /* sorting */
     private void bubbleSort() {
         try {
             for (int i = 0; i < N; i++) {
@@ -439,7 +440,7 @@ public class DSAVisualizer extends JFrame {
         panel.repaint();
     }
 
-    /* ======================= RESTORED THEORY INFO ======================= */
+    /* theory page (vibe code) */
     private void showTheory(String algo) {
         info.setText("ALGORITHM: " + algo + "\n\nTIME COMPLEXITY:\n");
         String generalEquation = "";
