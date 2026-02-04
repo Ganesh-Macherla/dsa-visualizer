@@ -54,7 +54,9 @@ Requires Java 11+
 
 ## Output
 
-[Watch the 1-min video demo here](media/output.mp4)
+[Basic sorting demo](media/demo.gif)
+[Watch the full 1-min demo here](media/output.mp4)
+
 
 
 
