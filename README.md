@@ -1,9 +1,13 @@
-# 📊 Sorting Visualizer
+#  Sorting Visualizer
 
 This project is an interactive sorting algorithm visualizer built in Java Swing.  
 It demonstrates the internal mechanics of classic sorting techniques through real-time animation, step-by-step debugging, and mathematical analysis. The tool is designed as a learning aid for Data Structures and Algorithms, allowing users to pause execution, rewind states, and observe how data moves during sorting in real time.
 
-## 🚀 Key Features
+## How is it built?
+
+
+
+##  Key Features
 
 - **Snapshot Debugger**  
   Records every array state. Pause the sort and scrub through history using **← Previous** and **Next →**.
@@ -23,7 +27,7 @@ It demonstrates the internal mechanics of classic sorting techniques through rea
 - **Thread-safe Control System**  
   Monitor-based pause/resume/step execution.
 
-## 🧠 Supported Algorithms
+##  Supported Algorithms
 
 | Algorithm | Best Case | Average Case | Worst Case |
 | :--- | :--- | :--- | :--- |
@@ -35,7 +39,7 @@ It demonstrates the internal mechanics of classic sorting techniques through rea
 | Heap Sort | O(n log n) | O(n log n) | O(n log n) |
 | Shell Sort | depends on gap | ~O(n^(3/2)) | O(n²) |
 
-## 🎮 How to Use
+##  How to Use
 
 1. Select an algorithm
 2. Generate a dataset
@@ -43,7 +47,7 @@ It demonstrates the internal mechanics of classic sorting techniques through rea
 4. Pause anytime to step backward/forward
 5. Resume from any snapshot
 
-## ⚙️ Installation
+##  Installation
 
 ```bash
 javac DSAVisualizer.java
