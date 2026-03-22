@@ -5,7 +5,7 @@ It demonstrates the internal mechanics of classic sorting techniques through rea
 
 ## How is it built?
 
-
+This project was developed using Java, with the graphical interface implemented using Java Swing and rendering handled through AWT’s Graphics2D API. The application visualizes multiple sorting algorithms including Bubble, Selection, Insertion, Merge, Quick, Heap, and Shell Sort using a custom animation engine based on repaint cycles and timed execution delays. A snapshot-based state management system was designed to enable pause, step-forward, and step-backward debugging of algorithm execution. The system follows an event-driven architecture with multithreaded sorting execution to maintain UI responsiveness. Object-oriented design principles were used to model visual elements, algorithm states, and interaction logic, while real-time operation tracking provides analytical insights into comparisons and data movements.
 
 ##  Key Features
 
